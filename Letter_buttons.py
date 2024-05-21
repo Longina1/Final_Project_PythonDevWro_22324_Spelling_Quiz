@@ -2,23 +2,22 @@ import tkinter as tk
 from tkinter.messagebox import showinfo
 
 root = tk.Tk()
-# root.geometry('500x600')
 window_width = 800
 window_height = 600
 
 
-#pobieranie wielkości ekranu
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
-#print(screen_width, screen_height)
 centre_x = int(screen_width/2 - window_width / 2)
 centre_y = int(screen_height/2 - window_height / 2)
 root.geometry(f'{window_width}x{window_height}+{centre_x}+{centre_y}')
 root.resizable(False, False)
 root.attributes('-topmost', 1)
-root.attributes('-alpha', 0.8)
 root.title('Mistrz ortografii')
 root.iconbitmap('./Fountain_pen.ico')
+
+entry_text = tk.StringVar()
+# entry_text.set('0')
 
 questions = ['1. St_ł bez n_g chowam za r_g.',
     '2. _urawie _erują w trawie.',
@@ -32,13 +31,23 @@ questions = ['1. St_ł bez n_g chowam za r_g.',
     '10. Na d_ewie mieszka zwie_ę.'
 ]
 
-entry_text = tk.StringVar()
-entry_text.set('')
 
 
-def click():
-    current_char = entry_text.get()
-    entry_text.set(current_char)
+def update_textbox(character):
+    current_text = entry_text.get()
+    #textbox.config(state=tk.NORMAL)
+    textbox.insert('1.0', str(current_text))
+
+    # global entry_text
+    # current_text = entry_text.get()
+    # if current_text:
+    #    textbox.set(current_text)
+    # else:
+    #    textbox.set('')
+
+# def click():
+#     current_char = entry_text.get()
+#     entry_text.set(current_char)
 
 def next():
     pass
