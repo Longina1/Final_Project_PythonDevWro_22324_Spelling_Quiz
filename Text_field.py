@@ -18,20 +18,20 @@ root.title('Mistrz ortografii')
 root.configure(bg='#FAFAFA')
 root.iconbitmap('./Fountain_pen.ico')
 
-questions = ['1. St_ł bez n_g chowam za r_g.',
-    '2. _urawie _erują w trawie.',
-    '3. _ółta _aba szuka kraba.',
-    '4. Czy _arty mają duży hart du_a?',
-    '5. Mu_a nie wypełni brzu_a żuka.',
-    '6. R_żowa k_zka weszła do w_zka.',
-    '7. Ły_ka i ły_eczka, a do tego fili_aneczka.',
-    '8. Kto bazg_e po mu_e zamiast wycierać ku_e?',
-    '9. Ka_dy mo_e jechać nad morze.',
-    '10. Na d_ewie mieszka zwie_ę.'
+questions = ['1. S_wka płomyk_wka szuka oł_wka.',
+    '2. Na pla_y tłum się sma_y.',
+    '3. Rowe_ysta ze ścieżki ko_ysta.',
+    '4. _orobliwie _udy _łopak _odzi powoli.',
+    '5. Na _amaku _arcerz chrapie.',
+    '6. Zwinna wiewi_rka przebiega przez podw_rka.',
+    '7. Bła_ej _ongluje i gumę _uje.',
+    '8. B_egiem Bieb_y bóbr szuka wie_by.',
+    '9. _ipopotam w _amaku robi dużo _ałasu.',
+    '10. Razu pewnego pszczoła u_ądliła _ółwia _wawego.'
 ]
 
 
-answers = ['ó', 'ż', 'ż', 'ch', 'ch', 'ó', 'ż', 'rz', 'ż', 'rz']
+answers = ['ó', 'ż', 'rz', 'ch', 'h', 'ó', 'ż', 'rz', 'h', 'ż']
 
 score = 0
 total_no_of_questions = 10
@@ -67,7 +67,7 @@ instruction.pack(fill='x', expand=True)
 space = tk.Label(frame, text=' \n  \n ', bg='#E0FFFF')
 space.pack(fill='x', expand=True)
 
-question = tk.Label(frame, text=questions[question_no - 1], font=('Verbana', 25), bg='#E0FFFF')
+question = tk.Label(frame, text=questions[question_no - 1], font=('Verbana', 23), bg='#E0FFFF')
 question.pack(fill='x', expand=True)
 
 entry = tk.Entry(frame, textvariable=entry_text)

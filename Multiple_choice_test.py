@@ -89,7 +89,7 @@ def check(option):
         value1.set(0)
 
 
-instruction = tk.Label(frame, text='Wpisz literę, której brakuje w poniższym zdaniu.', font=('Arial', 10), bg='#FAFAFA')
+instruction = tk.Label(frame, text='Wybierz literę, której brakuje w poniższym zdaniu.', font=('Arial', 10), bg='#FAFAFA')
 instruction.pack(fill='x', expand=True)
 
 space = tk.Label(frame, text=' \n  \n ', bg='#FAFAFA')

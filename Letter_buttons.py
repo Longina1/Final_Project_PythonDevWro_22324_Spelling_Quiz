@@ -17,7 +17,7 @@ root.title('Mistrz ortografii')
 root.iconbitmap('./Fountain_pen.ico')
 
 entry_text = tk.StringVar()
-# entry_text.set('0')
+
 
 questions = ['1. St_ł bez n_g chowam za r_g.',
     '2. _urawie _erują w trawie.',
@@ -31,12 +31,23 @@ questions = ['1. St_ł bez n_g chowam za r_g.',
     '10. Na d_ewie mieszka zwie_ę.'
 ]
 
+answers = ['ó', 'ż', 'ż', 'ch', 'ch', 'ó', 'ż', 'rz', 'ż', 'rz']
+
+score = 0
+total_no_of_questions = 10
+question_no = 1
 
 
-def update_textbox(character):
+# Create the calculator display screen
+# display_label = tk.Label(root, textvariable=display, font=("Arial", 24), anchor="e", background="white")
+# display_label.grid(row=0, column=0, columnspan=4)
+
+def update_textbox(letter):
+    global entry_text
     current_text = entry_text.get()
     #textbox.config(state=tk.NORMAL)
-    textbox.insert('1.0', str(current_text))
+    output_textbox.insert('1.0', current_text)
+    # textbox.insert('1.0', current_text)
 
     # global entry_text
     # current_text = entry_text.get()
@@ -49,20 +60,49 @@ def update_textbox(character):
 #     current_char = entry_text.get()
 #     entry_text.set(current_char)
 
-def next():
-    pass
+
 
 
 def check():
     pass
 
-question = tk.Label(root, font=('Arial', 25), bg='#E0F7FA', text=questions[0])
-question.pack(fill=tk.X)
+
+# question = tk.Label(root, font=('Arial', 25), bg='#E0F7FA', text=questions[0])
+# question.pack(fill=tk.X)
 
 # label = tk.Label(root, text='Mistrz ortografii', font=('Arial', 20))
 # label.pack(padx=20, pady=50)
-textbox = tk.Text(root, height=3, font=('Arial', 14))
-textbox.pack(padx=10, pady=10)
+# textbox = tk.Text(root, height=3, font=('Arial', 14))
+# textbox.pack(padx=10, pady=10)
+# entry_label = tk.Label(root, textvariable=entry_text, anchor='e')
+# # entry_label.pack()
+# display = tk.Entry(root)
+# display.pack()
+
+def next():
+    global score,question_no
+
+    if entry_text.get().lower() == answers[question_no - 1]:
+        score += 1
+
+    question_no += 1
+
+    if question_no > total_no_of_questions:
+        next_button.pack_forget()
+        label = tk.Label(root, text='Twój wynik: '+ str(score), font=('Verbana', 30), bg='#FFFAFA', fg='#2F4F4F')
+        label.pack(padx=50, pady=50)
+        quit_button = tk.Button(root, text='Koniec', command=root.quit, bg='#FFE4E1')
+        quit_button.pack(ipadx=5, ipady=15, expand=True)
+
+    else:
+        output_textbox.delete('0', tk.END)
+        question.config(text=questions[question_no - 1])
+
+
+output_frame = tk.Frame(root)
+output_frame.pack(fill='x')
+output_textbox = tk.Text(root, height=3, font=('Arial', 14))
+output_textbox.pack(padx=10, pady=10)
 
 
 buttonframe = tk.Frame(root)
@@ -70,7 +110,7 @@ buttonframe.columnconfigure(0, weight=1)
 buttonframe.columnconfigure(1, weight=1)
 buttonframe.columnconfigure(2, weight=1)
 
-btn1 = tk.Button(buttonframe, text='u', font=('Arial', 15))
+btn1 = tk.Button(buttonframe, text='u', font=('Arial', 15), command=lambda letter=button: update_textbox(letter))
 btn1.grid(row=0, column=0, sticky=tk.W+tk.E, padx=10)
 btn2 = tk.Button(buttonframe, text='ó', font=('Arial', 15))
 btn2.grid(row=0, column=1, sticky=tk.W+tk.E, padx=10)
@@ -99,9 +139,10 @@ buttonframe.pack(fill='x')
 #
 # button = tk.Button(root, image=button_icon, command=button_clicked)
 # button.pack(ipadx=5, ipady=5,expand=True) #expand True - zawsze na środku
-
-next_btn = tk.Button(root, text='Następne')
-next_btn.place(x=300, y=300, height=100, width=100)
+frame = tk.Frame(root)
+frame.pack(padx=30, pady=10, fill='x', expand=True)
+next_button = tk.Button(frame, text='Dalej', command=next, bg='#E0FFFF')
+next_button.pack()
 
 # exit_button = tk.Button(root, text='Koniec', command=root.quit)
 # exit_button.place(x=400, y=400, height=300, width=300)
