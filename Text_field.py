@@ -4,7 +4,6 @@ import tkinter as tk
 root = tk.Tk()
 window_width = 800
 window_height = 600
-entry_text = tk.StringVar()
 
 
 screen_width = root.winfo_screenwidth()
@@ -26,7 +25,7 @@ questions = ['1. S_wka płomyk_wka szuka oł_wka.',
     '6. Zwinna wiewi_rka przebiega przez podw_rka.',
     '7. Bła_ej _ongluje i gumę _uje.',
     '8. B_egiem Bieb_y bóbr szuka wie_by.',
-    '9. _ipopotam w _amaku robi dużo _ałasu.',
+    '9. _ubert w _amaku robi dużo _ałasu.',
     '10. Razu pewnego pszczoła u_ądliła _ółwia _wawego.'
 ]
 
@@ -69,6 +68,8 @@ space.pack(fill='x', expand=True)
 
 question = tk.Label(frame, text=questions[question_no - 1], font=('Verbana', 23), bg='#E0FFFF')
 question.pack(fill='x', expand=True)
+
+entry_text = tk.StringVar()
 
 entry = tk.Entry(frame, textvariable=entry_text)
 entry.pack()

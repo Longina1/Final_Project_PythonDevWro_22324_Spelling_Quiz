@@ -25,7 +25,7 @@ questions = ['1. St_ł bez n_g chowam za r_g.',
     '4. Czy _arty mają duży hart du_a?',
     '5. Mu_a nie wypełni brzu_a żuka.',
     '6. R_żowa k_zka weszła do w_zka.',
-    '7. Ły_ka i ły_eczka, a do tego fili_aneczka.',
+    '7. Pasa_er wa_y ka_dą sztukę baga_u.',
     '8. Kto bazg_e po mu_e zamiast wycierać ku_e?',
     '9. Ka_dy mo_e jechać nad morze.',
     '10. Na d_ewie mieszka zwie_ę.'
@@ -61,13 +61,13 @@ def next():
     else:
         selected_option = 0
 
-    if answers[question_no - 1] == selected_option:
+    if selected_option == answers[question_no - 1]:
         score += 1
 
     question_no += 1
 
     if question_no > total_no_of_questions:
-        next_btn.pack_forget()
+        next_button.pack_forget()
         score_label = tk.Label(root, text='Twój wynik: '+ str(score), font=('Arial', 30), bg='#FFFAFA', fg='#2F4F4F')
         score_label.pack(padx=20, pady=20)
         quit_button = tk.Button(root, text='Koniec', command=root.quit, bg='#FFE4E1')
@@ -107,8 +107,8 @@ option1.pack()
 option2 = tk.Checkbutton(root, variable=value2, text=options[0][1], font=('Arial', 20), bg='#FAFAFA', command=lambda: check(2))
 option2.pack()
 
-next_btn = tk.Button(root, text='Dalej', bg='#BBDEFB', command=next)
-next_btn.pack()
+next_button = tk.Button(root, text='Dalej', bg='#BBDEFB', command=next)
+next_button.pack()
 
 
 root.mainloop()
